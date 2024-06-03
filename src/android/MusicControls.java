@@ -272,7 +272,12 @@ public class MusicControls extends CordovaPlugin {
 				PlaybackStateCompat.ACTION_PLAY_FROM_SEARCH);
 			playbackstateBuilder.setState(state, PlaybackStateCompat.PLAYBACK_POSITION_UNKNOWN, 0);
 		}
-		this.mediaSessionCompat.setPlaybackState(playbackstateBuilder.build());
+		
+		try {
+			this.mediaSessionCompat.setPlaybackState(playbackstateBuilder.build());
+		} catch (Exception e) {
+			System.out.println(e.getMessage());
+		}
 	}
 	
 	// Get image from url
